@@ -1,28 +1,26 @@
-Smart Robotic Arm — Gesture Controlled Multi-Axis System
+# Smart Robotic Arm — Gesture Controlled Multi-Axis System
 
-A real-time gesture-controlled robotic arm built using ESP32 firmware and computer vision (OpenCV + MediaPipe). The system allows intuitive multi-axis control of a robotic arm using hand tracking and ML-based gesture recognition.
+A real-time gesture-controlled robotic arm powered by **ESP32 firmware** and **computer vision (OpenCV + MediaPipe)**. This system enables intuitive multi-axis control using hand tracking and machine learning–based gesture recognition.
 
-🚀 Features
+---
 
-Multi-axis servo control (Base, Shoulder, Elbow, Wrist, Gripper)
+## 🚀 Features
 
-Real-time hand tracking using OpenCV + MediaPipe
+- Multi-axis servo control (Base, Shoulder, Elbow, Wrist, Gripper)
+- Real-time hand tracking using MediaPipe
+- Gesture classification with ML logic (NumPy / TensorFlow Lite optional)
+- Low-latency communication via HTTP / WebSockets
+- OTA firmware update support
+- Servo jitter reduction & power stability optimization
+- Modular firmware architecture
+- Real-time motion control loop
+- Expandable hardware design
 
-Gesture classification using ML (NumPy / TensorFlow Lite)
+---
 
-Low-latency communication via HTTP/WebSockets
+## 🏗️ System Architecture
 
-OTA firmware update support
-
-Power stability & servo jitter optimization
-
-Modular firmware architecture
-
-Real-time motion control loop
-
-Expandable hardware design
-
-🏗️ System Architecture
+```
 [Camera Input]
         ↓
 OpenCV + MediaPipe
@@ -38,88 +36,63 @@ ESP32 Firmware
 PCA9685 Servo Driver
         ↓
 Robotic Arm Actuation
-🧠 How It Works
+```
 
-Hand landmarks detected using MediaPipe.
+---
 
-Gesture classified using custom logic / ML model.
+## 🧠 How It Works
 
-Gesture mapped to robotic arm movement.
+1. Hand landmarks are detected using MediaPipe.
+2. Gestures are classified using rule-based logic or ML models.
+3. Gestures are mapped to robotic arm motion commands.
+4. Commands are transmitted to ESP32 over WiFi.
+5. ESP32 updates servo positions in real-time.
 
-Commands sent to ESP32 over WiFi.
+Optimized control pipeline ensures smooth and responsive actuation.
 
-ESP32 updates servo positions in real-time.
+---
 
-Low-latency pipeline ensures smooth and responsive control.
+## 🔩 Hardware Components
 
-🔩 Hardware Components
+- ESP32
+- PCA9685 16-Channel Servo Driver
+- 5x Servo Motors
+- External regulated power supply
+- USB / Webcam
+- Custom robotic arm frame
+- Optional 3D-printed mounts & housing
 
-ESP32
+---
 
-PCA9685 Servo Driver
+## 💻 Software Stack
 
-5x Servo Motors
+### Embedded Layer
+- ESP32
+- Embedded C++
+- FreeRTOS
+- PWM-based servo control
+- OTA update module
 
-External power supply
+### Computer Vision Layer
+- Python
+- OpenCV
+- MediaPipe
+- NumPy
+- TensorFlow Lite (optional)
 
-Camera (USB/Webcam)
+---
 
-Custom mechanical arm structure
+## 📡 Communication
 
-3D-printed mounts (optional)
+- HTTP / WebSocket-based real-time control
+- JSON command packets
+- Optimized latency handling
 
-💻 Software Stack
-Embedded
+---
 
-ESP32
+## 📂 Folder Structure
 
-Embedded C++
-
-FreeRTOS
-
-PWM control
-
-OTA update system
-
-Computer Vision
-
-Python
-
-OpenCV
-
-MediaPipe
-
-NumPy
-
-TensorFlow Lite (optional)
-
-📡 Communication
-
-HTTP / WebSocket-based real-time control
-
-JSON command packets
-
-Optimized control loop for reduced latency
-
-📈 Challenges Solved
-
-Servo jitter reduction
-
-Power stability under load
-
-Gesture classification accuracy
-
-Latency optimization
-
-Real-time smooth actuation
-
-Modular firmware structure
-
-📷 Demo
-
-(Add demo video or GIF here)
-
-📦 Folder Structure
+```
 smart-robotic-arm/
 │
 ├── firmware/
@@ -144,54 +117,67 @@ smart-robotic-arm/
 │   └── setup_guide.md
 │
 └── README.md
-🔌 Setup Guide
-Firmware
+```
 
-Install PlatformIO or Arduino IDE.
+---
 
-Flash firmware to ESP32.
+## 🔌 Setup Guide
 
-Configure WiFi credentials.
+### Firmware Setup
 
-Connect PCA9685 and servos.
+1. Install PlatformIO or Arduino IDE.
+2. Configure WiFi credentials in `config.h`.
+3. Connect PCA9685 and servos properly.
+4. Flash firmware to ESP32.
 
-Computer Vision
+### Computer Vision Setup
 
-Install dependencies:
-
+```bash
 pip install -r requirements.txt
-
-Run:
-
 python hand_tracking.py
-🛠️ Future Improvements
+```
 
-Add inverse kinematics
+---
 
-Web dashboard control
+## ⚙️ Engineering Challenges Solved
 
-Edge AI deployment
+- Servo jitter reduction using optimized PWM timing
+- Power stability under multi-servo load
+- Gesture classification accuracy tuning
+- Latency optimization for real-time response
+- Modular firmware state management
 
-Mobile app interface
+---
 
-Object detection integration
+## 📈 Applications
 
-ROS compatibility
+- Industrial automation
+- Educational robotics
+- Assistive robotics
+- Smart manufacturing
+- AI-driven automation systems
 
-🎯 Applications
+---
 
-Industrial automation
+## 🔮 Future Improvements
 
-Educational robotics
+- Inverse kinematics integration
+- Web-based control dashboard
+- Edge AI deployment on-device
+- Mobile app integration
+- Object detection integration
+- ROS compatibility layer
 
-Assistive robotics
+---
 
-Smart manufacturing
+## 👤 Author
 
-AI-driven automation systems
-
-👤 Author
-
-Jishnu Mahanta
-Full-stack & IoT Engineer
+**Jishnu Mahanta**  
+Full-stack & IoT Engineer  
 Building intelligent systems & calm UX.
+
+---
+
+## 📜 License
+
+MIT License 
